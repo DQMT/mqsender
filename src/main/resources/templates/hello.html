@@ -6,7 +6,7 @@
 <head>
     <title>mqsender</title>
     <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="mqsender.js?v=1.10" charset="utf-8"></script>
+    <script type="text/javascript" src="mqsender.js?v=1.12" charset="utf-8"></script>
 </head>
 
 <body>
@@ -15,34 +15,22 @@
     <form >
         <table>
             <tr>
-                <td><span>rabbitmq.host</span>
-                    <label>
-                        <input id="mq-host" type="text" th:size="10"/>
-                    </label>
-                </td>
-                <td>
-                    <span>rabbitmq.port</span>
-                    <label>
-                        <input id="mq-port" type="text" th:size="10" />
-                    </label>
-                </td>
-                <td>
-                    <span>rabbitmq.username</span>
-                    <label>
-                        <input id="mq-username" type="text" th:size="30" />
-                    </label>
-                </td>
-                <td>
-                    <span>rabbitmq.password</span>
-                    <label>
-                        <input id="mq-password" type="text" th:size="30" />
-                    </label>
-                </td>
-                <td>
-                    <span>rabbitmq.queue</span>
-                    <label>
-                        <input id="mq-queue" type="text" th:size="30" />
-                    </label>
+                <td th:colspan="8">
+                    <span>rabbitmq.host
+
+                    </span> <input id="mq-host" type="text" th:size="10"/>
+                    <span>rabbitmq.port
+
+                    </span> <input id="mq-port" type="text" th:size="10" />
+                    <span>rabbitmq.username
+
+                    </span>  <input id="mq-username" type="text" th:size="10" />
+                    <span>rabbitmq.password
+
+                    </span> <input id="mq-password" type="text" th:size="10" />
+                    <span>rabbitmq.queue
+
+                    </span>  <input id="mq-queue" type="text" th:size="10" />
                 </td>
             </tr>
             <tr>
@@ -57,22 +45,68 @@
                     <label>
                         <input id="rest-url" type="text" th:size="70"/>
                     </label>
-                    <button type="button" onclick="doSend();">Send !</button>
+                    <button type="button" onclick="doSend();" style="height:80px;width:80px;">Send !</button>
 
                 </td>
             </tr>
             <tr>
-                <td><span>body</span></td>
-                <td>
+                <td><span>body</span>
                     <label for="rest-body"></label><textarea id="rest-body" rows="20" cols="50">
                     </textarea>
+                </td>
+                <td><span>headers</span>
+                   <textarea id="rest-headers" rows="20" cols="50">
+                    </textarea>
+                </td>
+
+                <td><span>cookies</span>
+                    <textarea id="rest-cookies" rows="20" cols="50">
+                    </textarea>
+                </td>
+
+                <td><span>session</span>
+                    <textarea id="rest-session" rows="20" cols="50">
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="rest-remoteAddress">remoteAddress
+                        <input id="rest-remoteAddress" type="text" th:size="30" />
+                    </label>
                 </td>
             </tr>
             <tr>
                 <td><span>deliveryInfo</span></td>
                 <td>
-                    <label for="rest-deliveryInfo"></label><textarea id="rest-deliveryInfo" rows="20" cols="50">
-                    </textarea>
+
+                    <label for="rest-deliveryInfo"></label>
+                    <table id="rest-deliveryInfo" >
+                        <tr>
+                            <td>
+                               appId
+                            </td>
+                            <td>
+                                <input id="message-appid" type="text" th:size="30" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                messageId
+                            </td>
+                            <td>
+                                <input id="message-messageId" type="text" th:size="30" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                replyTo
+                            </td>
+                            <td>
+                                <input id="message-replyTo" type="text" th:size="30" />
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>

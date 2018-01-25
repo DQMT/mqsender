@@ -1,5 +1,6 @@
 package cn.tincat.mqsender.mq;
 
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -24,13 +25,13 @@ public class MQSender {
         return connectionFactory;
     }
 
-    public void send(ConnectionFactory connectionFactory,String mq, String msg) {
+    public void send(ConnectionFactory connectionFactory,String mq, Message msg) {
         RabbitTemplate newRabbitTemplate = new RabbitTemplate(connectionFactory);
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
         newRabbitTemplate.convertAndSend(null, mq, msg, correlationData);
     }
 
-    public void send(String mq, String msg) {
+    public void send(String mq, Message msg) {
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
         this.rabbitTemplate.convertAndSend(null, mq, msg, correlationData);
     }
