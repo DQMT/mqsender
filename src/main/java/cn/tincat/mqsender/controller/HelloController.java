@@ -10,12 +10,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/hello")
 public class HelloController {
 
+    @Value("${mqsender.queue.name}")
+    private String queueName;
+
     @Value("${mqsender.index.message}")
     private String helloMessage;
 
+    @Value("${spring.rabbitmq.host}")
+    private String rabbitmqHost;
+
+    @Value("${spring.rabbitmq.port}")
+    private String rabbitmqPort;
+
+    @Value("${spring.rabbitmq.virtual-host}")
+    private String rabbitmqVirtualHost;
+
     @RequestMapping("")
     public String hello(Model model) {
-        model.addAttribute("msg", helloMessage);
+        String msg = helloMessage + "   default mq = " + rabbitmqHost + ":" + rabbitmqPort + rabbitmqVirtualHost + "    default queue=" + queueName;
+        model.addAttribute("msg", msg);
         return "hello";
     }
 }

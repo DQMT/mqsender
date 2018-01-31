@@ -109,7 +109,7 @@ public class SendController {
                 mqSender.send(connectionFactory, queue, msg);
             }
             logger.warn(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" );
-            logger.warn("send MQ massage to " + queueName );
+            logger.warn("send MQ massage to " + queue );
             logger.warn("massage : " + msg );
             logger.warn("massage body : " + str );
             logger.warn("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
